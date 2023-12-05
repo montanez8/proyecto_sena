@@ -9,7 +9,7 @@ proyecto de bases de datos  de campuslands 2023
 
 ## Modelo Relacional.
 
-![Alt text](/archivos/modeloRelacional.png)
+![Alt text](/archivos/modeloRelacional%20.png)
 
 
 ### Creacion de la base de datos.
@@ -456,6 +456,25 @@ WHERE m.`Estado_Matricula` = 'Terminado';
 | Alejandro           | Seguridad y Salud Ocupacional | Sistemas de Gestión en Seguridad Ocupacional |
 +---------------------+-------------------------------+----------------------------------------------+
 ```
+9.
+```sql
+SELECT a.*
+FROM aprendices a
+INNER JOIN carreras c ON a.id_carrera = c.id_carrera
+INNER JOIN rutas r ON c.id_carrera = r.id_carrera
+INNER JOIN curso_ruta cr ON r.id_ruta = cr.id_ruta
+INNER JOIN cursos cu ON cr.id_curso = cu.id_curso
+WHERE cu.nombre = 'Bases de Datos Relacionales';
+```
+### Resultado
+```bash
++------------------+--------+----------+------------+--------------+------+
+| numero_documento | nombre | apellido | id_carrera | id_matricula | edad |
++------------------+--------+----------+------------+--------------+------+
+|        123456789 | Carlos | Gomez    |          1 |            1 |   19 |
+|        678901234 | Camila | Lopez    |          1 |            6 |   45 |
++------------------+--------+----------+------------+--------------+------+
+```
 
 10.	Nombres de Instructores que no tienen curso asignado
 ```sql
@@ -478,4 +497,53 @@ WHERE icr.`id_instructor` IS NULL;
 
 # Preguntas de tipo seleccion multiple.
 
-1.
+1. ¿Cuál de las siguientes afirmaciones describe correctamente el concepto de "normalización" en el contexto de bases de datos relacionales?
+
+```txt
+a) La normalización es el proceso de agregar redundancia a las tablas para mejorar el rendimiento de las consultas.
+
+b) La normalización es el proceso de organizar datos en una base de datos de manera eficiente para reducir la redundancia y mejorar la integridad.
+
+c) La normalización se refiere a la duplicación deliberada de datos en varias tablas para garantizar la disponibilidad de la información.
+
+d) La normalización es exclusivamente aplicable a bases de datos NoSQL y no tiene relevancia en bases de datos relacionales.
+
+    Respuesta = b
+```
+
+2. ¿Cuál de las siguientes sentencias SQL se utiliza para agregar una nueva columna a una tabla existente?
+```txt
+a) ALTER TABLE tabla ADD COLUMN nueva_columna TYPE;
+
+b) UPDATE TABLE tabla SET COLUMN nueva_columna = valor;
+
+c) MODIFY COLUMN nueva_columna IN TABLE tabla;
+
+d) INSERT INTO tabla (nueva_columna) VALUES (valor);
+
+    Respuesta = a
+```
+3. En el modelo relacional, ¿cuál es el propósito de la cláusula WHERE en una sentencia SQL?
+```txt
+a) La cláusula WHERE se utiliza para especificar las columnas que se deben incluir en el resultado de la consulta.
+
+b) La cláusula WHERE se utiliza para agrupar filas que tienen los mismos valores en una o más columnas.
+
+c) La cláusula WHERE se utiliza para filtrar los resultados de una consulta según una condición especificada.
+
+d) La cláusula WHERE se utiliza para ordenar los resultados de una consulta en orden ascendente o descendente.
+
+    Respuesta =  c
+```
+4. En MySQL, ¿cuál es la función de la cláusula HAVING en una consulta SQL?
+```txt
+a) La cláusula HAVING se utiliza para ordenar los resultados de una consulta en orden ascendente o descendente.
+
+b) La cláusula HAVING se utiliza para filtrar los resultados de una consulta según una condición especificada.
+
+c) La cláusula HAVING se utiliza para especificar condiciones de búsqueda para las columnas en la cláusula SELECT.
+
+d) La cláusula HAVING se utiliza para filtrar los resultados de una consulta después de que se ha aplicado la cláusula GROUP BY.
+
+    Respuesta = d
+```
