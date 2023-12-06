@@ -306,9 +306,7 @@ UPDATE proyecto_sena.matriculas SET Estado_Matricula = 'Cancelado' WHERE id_matr
 2. Agregue a el campo edad a la tabla de Aprendices.
 
 ```sql
-UPDATE `aprendices`
-SET `edad` = 25  -- Nueva edad
-WHERE `numero_documento` = 123123123;
+ALTER TABLE `aprendices` ADD COLUMN `edad` INT;
 
 
     -- Update de la tabla aprendices
