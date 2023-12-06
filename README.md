@@ -456,7 +456,7 @@ WHERE m.`Estado_Matricula` = 'Terminado';
 | Alejandro           | Seguridad y Salud Ocupacional | Sistemas de Gestión en Seguridad Ocupacional |
 +---------------------+-------------------------------+----------------------------------------------+
 ```
-9.
+9. Genere un listado de los aprendices matriculados en el curso “Bases de Datos Relacionales”
 ```sql
 SELECT a.*
 FROM aprendices a
